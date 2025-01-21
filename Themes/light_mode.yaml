@@ -1,0 +1,27 @@
+---
+#
+# Light Theme
+#
+light_mode:
+  # GLOBAL
+
+  primary-background-color: "#f3f3f3"
+  seconday-background-color: "#ffffff"
+  primary-text-color: "#1e1e1e"
+  secondary-text-color: "777777"
+  primary-font-family: "Lato"
+
+  # CARD
+
+  card-background-color: rgb(243, 243, 243)
+
+  # FONTS
+  paper-font-common-code_-_font-family: "var(--primary-font-family)"
+  paper-font-body1_-_font-family: "var(--primary-font-family)"
+  paper-font-subhead_-_font-family: "var(--primary-font-family)"
+  paper-font-headline_-_font-family: "var(--primary-font-family)"
+  paper-font-caption_-_font-family: "var(--primary-font-family)"
+  paper-font-title_-_font-family: "var(--primary-font-family)"
+  ha-card-header-font-family: "var(--primary-font-family)"
+
+  #ha-card-border-color: "#55585e"
