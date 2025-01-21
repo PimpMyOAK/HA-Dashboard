@@ -1,0 +1,915 @@
+button_card_templates:
+  room_card:
+    styles:
+      card:
+        - justify-content: center
+        - padding: 10px
+        - height: 65px
+      img_cell:
+        - background-color: var(--primary-background-color)
+        - border-radius: 30%
+        - border: 1px solid var(--ha-card-border-color)
+        - height: 45px
+        - width: 45px
+        - position: absolute
+        - left: 0
+        - margin: 10px
+      icon:
+        - color: white
+      name:
+        - font-size: 12pt
+        - font-weight: 300
+        - font-family: Roboto
+        - letter-spacing: 2px
+        - position: absolute
+        - left: 0
+        - margin-left: 70px
+      custom_fields:
+        arrow:
+          - width: 25px
+          - height: 25px
+          - color: white
+          - background-color: '#1d1c21'
+          - color: cecdd0
+          - border: 1px solid var(--ha-card-border-color)
+          - border-radius: 100%
+          - position: absolute
+          - right: 6%
+          - padding: 3px
+  status_card:
+    styles:
+      card:
+        - height: 50px
+        - width: 50px
+        - justify-content: center
+        - padding-right: 0px
+      icon:
+        - color: '#dfdfdf'
+        - width: 20px
+  status_card2:
+    styles:
+      card:
+        - height: 50px
+        - width: 80px
+        - justify-content: center
+      icon:
+        - color: '#dfdfdf'
+        - width: 20px
+  header1:
+    styles:
+      card:
+        - '--card-background-color': rgba(0,0,0,0)
+        - '--ha-card-border-color': rgba(0,0,0,0)
+        - padding-top: 10px
+        - padding-bottom: 10px
+        - height: 30px
+        - margin: 0px
+      name:
+        - font-size: 16pt
+        - font-weight: 300
+        - font-family: Roboto
+        - letter-spacing: 1px
+        - position: absolute
+        - left: 0
+        - margin-left: 10px
+        - margin-top: 0px
+        - padding-top: 0px
+  header2:
+    styles:
+      card:
+        - '--card-background-color': rgba(0,0,0,0)
+        - '--ha-card-border-color': rgba(0,0,0,0)
+        - padding-top: 10px
+        - padding-bottom: 0px
+        - height: 30px
+        - margin: 0px
+      name:
+        - color: '#dfdfdf'
+        - font-size: 10pt
+        - font-weight: 300
+        - font-family: Roboto
+        - letter-spacing: 0.5px
+        - position: absolute
+        - left: 0
+        - margin-left: 15px
+        - padding: 0px
+  controls:
+    styles:
+      card:
+        - background: rgba(0,0,0,0)
+        - border: rgba(0,0,0,0)
+      img_cell:
+        - background: rgba(29, 28, 33, 1)
+        - border: 1px solid rgba(85, 88, 94, 1)
+        - border-radius: 100%
+        - height: 30px
+        - width: 30px
+        - justify-self: start
+      icon:
+        - width: 20px
+        - color: white
+  spacer:
+    styles:
+      card:
+        - height: 10px
+        - padding: 0px
+        - margin-top: 15px
+        - border-radius: 0px
+        - border-width: 0px
+        - border-top: 4px solid rgba(100, 103, 120, 1)
+        - background-color: rgba (255, 255, 255, 0)
+views:
+  - title: Home
+    theme: dark_blue
+    cards:
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: 83% 22%
+          grid-template-rows: 30px 30px 30px 30px 30px 30px 30px 30px 30px
+          grid-template-areas: |
+            "header spacer1"
+            "picture status_morgon"
+            "picture status_morgon"
+            "picture status_hemma"
+            "picture status_hemma"
+            "picture status_borta"
+            "picture status_borta"
+            "picture status_natt"
+            "spacer status_natt"
+        cards:
+          - type: custom:layout-break
+            view_layout:
+              grid-area: spacer1
+          - type: picture
+            image: /local/Images/HomeOutside.png
+            view_layout:
+              grid-area: picture
+            card_mod:
+              style: |
+                ha-card {
+                  --ha-card-border-color: rgba(0,0,0,0);
+                  --card-background-color: rgba(0,0,0,0);
+                  padding-right: 10px
+                  }              
+          - type: custom:button-card
+            template: status_card
+            show_name: false
+            entity: script.hemma
+            icon: mdi:weather-sunset-up
+            view_layout:
+              grid-area: status_morgon
+            card_mod:
+              style: |
+                ha-card {
+                  --ha-card-border-color: var(--ha-card-border-color);
+                  --ha-card-border-width: 2px;
+                  --card-background-color: var(--primary-background-color);
+          - type: custom:button-card
+            template: status_card
+            show_name: false
+            entity: script.morgon
+            icon: mdi:home-outline
+            view_layout:
+              grid-area: status_hemma
+            card_mod:
+              style: |
+                ha-card {
+                  --ha-card-border-color: "#dfdfd";
+                  --ha-card-border-width: 1px;
+                  --card-background-color: var(--secondary-background-color);
+          - type: custom:button-card
+            template: status_card
+            show_name: false
+            entity: script.borta
+            icon: mdi:home-export-outline
+            view_layout:
+              grid-area: status_borta
+            card_mod:
+              style: |
+                ha-card {
+                  --ha-card-border-color: var(--ha-card-border-color);
+                  --ha-card-border-width: 2px;
+                  --card-background-color: var(--primary-background-color);
+          - type: custom:button-card
+            template: status_card
+            show_name: false
+            entity: script.natt
+            icon: mdi:weather-night
+            view_layout:
+              grid-area: status_natt
+            card_mod:
+              style: |
+                ha-card {
+                  --ha-card-border-color: var(--ha-card-border-color);
+                  --ha-card-border-width: 2px;
+                  --card-background-color: var(--primary-background-color);
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            name: Rum
+            styles:
+              name:
+                - font-size: 14pt
+                - font-weight: 400
+                - justify-self: start
+              card:
+                - padding: 5px 0 5px 15px
+                - background: rgba(0,0,0,0)
+                - border: none
+          - type: custom:button-card
+            template: room_card
+            name: Vardagsrum
+            show_icon: true
+            show_state: false
+            entity: input_boolean.toggle_vardagsrum_ui
+            tap_action:
+              action: call-service
+              service: input_boolean.toggle
+              service_data:
+                entity_id: input_boolean.toggle_vardagsrum_ui
+            custom_fields:
+              arrow: |
+                [[[
+                    if (states['input_boolean.toggle_vardagsrum_ui'].state == 'on')
+                      return `<ha-icon
+                icon="mdi:chevron-down">
+                </ha-icon>`
+                    return `<ha-icon
+                icon="mdi:chevron-right">
+                </ha-icon>`;
+                  ]]]
+                  
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: input_boolean.toggle_vardagsrum_ui
+                state: 'on'
+            card:
+              type: vertical-stack
+              cards:
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      entity: light.lightgroup_livingroom_floorlamp
+                      name: Belysning
+                      show_icon: false
+                      show_state: false
+                      tap_action:
+                        action: none
+                      custom_fields:
+                        n2: Golvlampa
+                        toggle:
+                          card:
+                            type: custom:button-card
+                            name: toggle
+                            entity: light.lightgroup_livingroom_floorlamp
+                            show_icon: true
+                            show_name: false
+                            show_state: false
+                            show_entity_picture: true
+                            state:
+                              - entity_picture: /local/Images/toggle_on_light.png
+                                value: 'on'
+                              - entity_picture: /local/Images/toggle_off.png
+                                value: 'off'
+                            styles:
+                              card:
+                                - border: rgba(0,0,0,0)
+                                - background: rgba(0,0,0,0)
+                              entity_picture:
+                                - width: 100%
+                        settings:
+                          card:
+                            type: custom:button-card
+                            icon: mdi:cog-outline
+                            show_name: false
+                            show_state: false
+                            entity: light.lightgroup_livingroom_floorlamp
+                            color: var(--primary-text-color)
+                            tap_action:
+                              action: more-info
+                            styles:
+                              card:
+                                - border: rgba(0,0,0,0)
+                                - background: rgba(0,0,0,0)
+                              img_cell:
+                                - width: 30px
+                                - justify-self: end
+                              icon:
+                                - width: 25px
+                                - '--state-inactive-color': var(--primary-text-color)
+                      styles:
+                        grid:
+                          - grid-template-areas: |
+                              "n n settings"
+                              "n2 n2 blank2"
+                              "blank1 toggle toggle"
+                          - grid-template-rows: 0.5fr 1.5fr 1fr
+                          - grid-template-columns: 2fr 35px 35px
+                        card:
+                          - '--ha-card-border-color': 1px solid var(--ha-card-border-color)
+                          - padding: 10px
+                          - height: 100%
+                          - border: 0.5px solid
+                          - background: rgb(29,28,33)
+                        img_cell:
+                          - height: 50px
+                          - border: 1px solid blue
+                          - '--card-background-color': rgba(white,0);
+                        icon:
+                          - align-self: end
+                        name:
+                          - justify-self: start
+                          - align-self: start
+                          - text-align: left
+                          - font-size: 24px
+                          - font-weight: 300
+                          - color: var(--primary-text-color)
+                        custom_fields:
+                          n2:
+                            - justify-self: start
+                            - align-self: start
+                            - text-align: left
+                            - font-size: 14px
+                            - font-weight: 300
+                            - color: var(--primary-text-color)
+                    - type: custom:button-card
+                      entity: light.bulb_livingroom_sofa_light
+                      name: Belysning
+                      show_icon: false
+                      show_state: false
+                      tap_action:
+                        action: none
+                      custom_fields:
+                        n2: Taklampa
+                        toggle:
+                          card:
+                            type: custom:button-card
+                            name: toggle
+                            entity: light.bulb_livingroom_sofa_light
+                            show_icon: true
+                            show_name: false
+                            show_state: false
+                            show_entity_picture: true
+                            state:
+                              - entity_picture: /local/Images/toggle_on.png
+                                value: 'on'
+                              - entity_picture: /local/Images/toggle_off.png
+                                value: 'off'
+                            styles:
+                              card:
+                                - border: rgba(0,0,0,0)
+                                - background: rgba(0,0,0,0)
+                              entity_picture:
+                                - width: 100%
+                        settings:
+                          card:
+                            type: custom:button-card
+                            icon: mdi:cog-outline
+                            show_name: false
+                            show_state: false
+                            entity: light.bulb_livingroom_sofa_light
+                            color: var(--primary-text-color)
+                            tap_action:
+                              action: more-info
+                            styles:
+                              card:
+                                - border: rgba(0,0,0,0)
+                                - background: rgba(0,0,0,0)
+                              img_cell:
+                                - width: 30px
+                                - justify-self: end
+                              icon:
+                                - width: 25px
+                                - '--state-inactive-color': var(--primary-text-color)
+                      styles:
+                        grid:
+                          - grid-template-areas: |
+                              "n n settings"
+                              "n2 n2 blank2"
+                              "blank1 toggle toggle"
+                          - grid-template-rows: 0.5fr 1.5fr 1fr
+                          - grid-template-columns: 2fr 35px 35px
+                        card:
+                          - '--ha-card-border-color': 1px solid var(--ha-card-border-color)
+                          - padding: 10px
+                          - height: 100%
+                          - background: >-
+                              linear-gradient(180deg, rgba(50,49,54,1) 0%,
+                              rgba(50,49,54,1) 60%, rgba(85,88,94,1) 100%);
+                        img_cell:
+                          - height: 50px
+                          - border: 1px solid blue
+                          - '--card-background-color': rgba(white,0);
+                        icon:
+                          - align-self: end
+                        name:
+                          - justify-self: start
+                          - align-self: start
+                          - text-align: left
+                          - font-size: 24px
+                          - font-weight: 300
+                          - color: var(--primary-text-color)
+                        custom_fields:
+                          n2:
+                            - justify-self: start
+                            - align-self: start
+                            - text-align: left
+                            - font-size: 14px
+                            - font-weight: 300
+                            - color: var(--primary-text-color)
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      entity: cover.vardagsrum_rullgardiner
+                      name: Rullgardiner
+                      tap-action:
+                        action: none
+                      show_icon: false
+                      show_state: false
+                      tap_action:
+                        action: none
+                      custom_fields:
+                        n2: Stora fönstret
+                        controlup:
+                          card:
+                            type: custom:button-card
+                            tap_action:
+                              action: call-service
+                              service: cover.open_cover
+                              service_data:
+                                entity_id: cover.vardagsrum_rullgardiner
+                            show_name: false
+                            icon: mdi:chevron-up
+                            template: controls
+                        controlstop:
+                          card:
+                            type: custom:button-card
+                            entity: cover.vardagsrum_rullgardiner
+                            tap_action:
+                              action: call-service
+                              service: cover.stop_cover
+                              service_data:
+                                entity_id: cover.vardagsrum_rullgardiner
+                            show_name: false
+                            icon: mdi:stop
+                            template: controls
+                        controldown:
+                          card:
+                            type: custom:button-card
+                            entity: cover.vardagsrum_rullgardiner
+                            tap_action:
+                              action: call-service
+                              service: cover.close_cover
+                              service_data:
+                                entity_id: cover.vardagsrum_rullgardiner
+                            show_name: false
+                            icon: mdi:chevron-down
+                            template: controls
+                        settings:
+                          card:
+                            type: custom:button-card
+                            icon: mdi:cog-outline
+                            show_name: false
+                            show_state: false
+                            entity: cover.vardagsrum_rullgardiner
+                            color: var(--primary-text-color)
+                            tap_action:
+                              action: more-info
+                            styles:
+                              card:
+                                - border: rgba(0,0,0,0)
+                                - background: rgba(0,0,0,0)
+                              img_cell:
+                                - width: 30px
+                                - justify-self: end
+                              icon:
+                                - width: 25px
+                                - '--state-inactive-color': var(--primary-text-color)
+                      styles:
+                        grid:
+                          - grid-template-areas: |
+                              "n n n settings"
+                              "n2 n2 blank2 blank4"
+                              "blank1 controlup controlstop controldown"
+                          - grid-template-rows: 30px 55px 35px
+                          - grid-template-columns: 2fr 40px 40px 35px
+                        card:
+                          - '--ha-card-border-color': 1px solid var(--ha-card-border-color)
+                          - padding: 10px
+                          - height: 100%
+                          - background: >-
+                              linear-gradient(180deg, rgba(50,49,54,1) 0%,
+                              rgba(50,49,54,1) 60%, rgba(85,88,94,1) 100%);
+                        img_cell:
+                          - height: 50px
+                          - border: 1px solid blue
+                          - '--card-background-color': rgba(white,0);
+                        icon:
+                          - align-self: end
+                        name:
+                          - justify-self: start
+                          - align-self: start
+                          - text-align: left
+                          - font-size: 24px
+                          - font-weight: 300
+                          - color: var(--primary-text-color)
+                        custom_fields:
+                          n2:
+                            - justify-self: start
+                            - align-self: start
+                            - text-align: left
+                            - font-size: 14px
+                            - font-weight: 300
+                            - color: var(--primary-text-color)
+          - type: custom:button-card
+            template: room_card
+            name: Sovrum
+            show_icon: true
+            icon: mdi:bed-king-outline
+            show_state: false
+            entity: input_boolean.toggle_sovrum_ui
+            tap_action:
+              action: call-service
+              service: input_boolean.toggle
+              service_data:
+                entity_id: input_boolean.toggle_sovrum_ui
+            custom_fields:
+              arrow: |
+                [[[
+                    if (states['input_boolean.toggle_sovrum_ui'].state == 'on')
+                      return `<ha-icon
+                icon="mdi:chevron-down">
+                </ha-icon>`
+                    return `<ha-icon
+                icon="mdi:chevron-right">
+                </ha-icon>`;
+                  ]]]
+          - type: custom:button-card
+            template: room_card
+            name: Kök
+            show_icon: true
+            show_state: false
+            entity: input_boolean.toggle_kok_ui
+            tap_action:
+              action: call-service
+              service: input_boolean.toggle
+              service_data:
+                entity_id: input_boolean.toggle_kok_ui
+            custom_fields:
+              arrow: |
+                [[[
+                    if (states['input_boolean.toggle_kok_ui'].state == 'on')
+                      return `<ha-icon
+                icon="mdi:chevron-down">
+                </ha-icon>`
+                    return `<ha-icon
+                icon="mdi:chevron-right">
+                </ha-icon>`;
+                  ]]]
+          - type: custom:button-card
+            template: room_card
+            name: Hall
+            show_icon: true
+            show_state: false
+            entity: input_boolean.toggle_hall_ui
+            tap_action:
+              action: call-service
+              service: input_boolean.toggle
+              service_data:
+                entity_id: input_boolean.toggle_hall_ui
+            custom_fields:
+              arrow: |
+                [[[
+                    if (states['input_boolean.toggle_hall_ui'].state == 'on')
+                      return `<ha-icon
+                icon="mdi:chevron-down">
+                </ha-icon>`
+                    return `<ha-icon
+                icon="mdi:chevron-right">
+                </ha-icon>`;
+                  ]]]
+          - type: custom:button-card
+            name: Enheter
+            styles:
+              name:
+                - font-size: 14pt
+                - font-weight: 400
+                - justify-self: start
+              card:
+                - padding: 10px 0 5px 15px
+                - background: rgba(0,0,0,0)
+                - border: none
+          - type: custom:button-card
+            template: room_card
+            name: Media
+            show_icon: true
+            show_state: false
+            entity: input_boolean.toggle_media_ui
+            tap_action:
+              action: call-service
+              service: input_boolean.toggle
+              service_data:
+                entity_id: input_boolean.toggle_media_ui
+            custom_fields:
+              arrow: |
+                [[[
+                    if (states['input_boolean.toggle_media_ui'].state == 'on')
+                      return `<ha-icon
+                icon="mdi:chevron-down">
+                </ha-icon>`
+                    return `<ha-icon
+                icon="mdi:chevron-right">
+                </ha-icon>`;
+                  ]]]
+          - type: custom:button-card
+            template: room_card
+            name: Dammsugare
+            show_icon: true
+            show_state: false
+            entity: input_boolean.toggle_dammsugare_ui
+            tap_action:
+              action: call-service
+              service: input_boolean.toggle
+              service_data:
+                entity_id: input_boolean.toggle_dammsugare_ui
+            custom_fields:
+              arrow: |
+                [[[
+                    if (states['input_boolean.toggle_dammsugare_ui'].state == 'on')
+                      return `<ha-icon
+                icon="mdi:chevron-down">
+                </ha-icon>`
+                    return `<ha-icon
+                icon="mdi:chevron-right">
+                </ha-icon>`;
+                  ]]]
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: 50% 50%
+          grid-template-areas: |
+            "card1 spacer1"
+        cards:
+          - type: custom:button-card
+            entity: light.lightdimmer_kitchen_diningtable
+            name: Belysning
+            show_icon: false
+            show_state: false
+            tap_action:
+              action: none
+            custom_fields:
+              n2: Golvlampa
+              toggle:
+                card:
+                  type: custom:button-card
+                  name: toggle
+                  entity: light.lightdimmer_kitchen_diningtable
+                  show_icon: true
+                  show_name: false
+                  show_state: false
+                  show_entity_picture: true
+                  state:
+                    - entity_picture: /local/Images/toggle_on.png
+                      value: 'on'
+                    - entity_picture: /local/Images/toggle_off.png
+                      value: 'off'
+                  styles:
+                    card:
+                      - border: rgba(0,0,0,0)
+                      - background: rgba(0,0,0,0)
+                    entity_picture:
+                      - width: 100%
+              settings:
+                card:
+                  type: custom:button-card
+                  icon: mdi:cog-outline
+                  show_name: false
+                  show_state: false
+                  entity: light.lightdimmer_kitchen_diningtable
+                  color: var(--primary-text-color)
+                  tap_action:
+                    action: more-info
+                  styles:
+                    card:
+                      - border: rgba(0,0,0,0)
+                      - background: rgba(0,0,0,0)
+                    img_cell:
+                      - width: 30px
+                      - justify-self: end
+                    icon:
+                      - width: 25px
+                      - '--state-inactive-color': var(--primary-text-color)
+            styles:
+              grid:
+                - grid-template-areas: |
+                    "n settings"
+                    "n2 blank2"
+                    "blank1 toggle"
+                - grid-template-rows: 0.5fr 1.5fr 1fr
+                - grid-template-columns: 2fr 1fr
+              card:
+                - '--ha-card-border-color': 1px solid var(--ha-card-border-color)
+                - padding: 10px
+                - height: 100%
+              img_cell:
+                - height: 50px
+                - border: 1px solid blue
+                - '--card-background-color': rgba(white,0);
+              icon:
+                - align-self: end
+              name:
+                - justify-self: start
+                - align-self: start
+                - text-align: left
+                - font-size: 24px
+                - font-weight: 300
+                - color: var(--primary-text-color)
+              custom_fields:
+                n2:
+                  - justify-self: start
+                  - align-self: start
+                  - text-align: left
+                  - font-size: 14px
+                  - font-weight: 300
+                  - color: var(--primary-text-color)
+          - type: custom:button-card
+            entity: cover.vardagsrum_rullgardiner
+            name: Rullgardiner
+            tap-action:
+              action: none
+            show_icon: false
+            show_state: false
+            tap_action:
+              action: none
+            custom_fields:
+              n2: Stora fönstret
+              controlup:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: cover.open_cover
+                    service_data:
+                      entity_id: cover.vardagsrum_rullgardiner
+                  show_name: false
+                  icon: mdi:chevron-up
+                  template: controls
+              controlstop:
+                card:
+                  type: custom:button-card
+                  entity: cover.vardagsrum_rullgardiner
+                  tap_action:
+                    action: call-service
+                    service: cover.stop_cover
+                    service_data:
+                      entity_id: cover.vardagsrum_rullgardiner
+                  show_name: false
+                  icon: mdi:stop
+                  template: controls
+              controldown:
+                card:
+                  type: custom:button-card
+                  entity: cover.vardagsrum_rullgardiner
+                  tap_action:
+                    action: call-service
+                    service: cover.close_cover
+                    service_data:
+                      entity_id: cover.vardagsrum_rullgardiner
+                  show_name: false
+                  icon: mdi:chevron-down
+                  template: controls
+              settings:
+                card:
+                  type: custom:button-card
+                  icon: mdi:cog-outline
+                  show_name: false
+                  show_state: false
+                  entity: light.lightdimmer_kitchen_diningtable
+                  color: var(--primary-text-color)
+                  tap_action:
+                    action: more-info
+                  styles:
+                    card:
+                      - border: rgba(0,0,0,0)
+                      - background: rgba(0,0,0,0)
+                    img_cell:
+                      - width: 30px
+                      - justify-self: end
+                    icon:
+                      - width: 25px
+                      - '--state-inactive-color': var(--primary-text-color)
+            styles:
+              grid:
+                - grid-template-areas: |
+                    "n n n settings"
+                    "n2 n2 blank2 blank4"
+                    "blank1 controlup controlstop controldown"
+                - grid-template-rows: 0.5fr 1.5fr 1fr
+                - grid-template-columns: 2fr 1fr 1fr 1fr
+              card:
+                - '--ha-card-border-color': 1px solid var(--ha-card-border-color)
+                - padding: 10px
+                - height: 100%
+              img_cell:
+                - height: 50px
+                - border: 1px solid blue
+                - '--card-background-color': rgba(white,0);
+              icon:
+                - align-self: end
+              name:
+                - justify-self: start
+                - align-self: start
+                - text-align: left
+                - font-size: 24px
+                - font-weight: 300
+                - color: var(--primary-text-color)
+              custom_fields:
+                n2:
+                  - justify-self: start
+                  - align-self: start
+                  - text-align: left
+                  - font-size: 14px
+                  - font-weight: 300
+                  - color: var(--primary-text-color)
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: 80px 1fr 80px 1fr 80px 1fr 80px
+          grid-template-areas: |
+            "morgon spacer2 hemma spacer3 borta spacer4 natt"
+        cards:
+          - type: custom:button-card
+            template: status_card2
+            show_name: false
+            entity: script.hemma
+            icon: mdi:weather-sunset-up
+            view_layout:
+              grid-area: morgon
+            card_mod:
+              style: |
+                ha-card {
+                  --ha-card-border-color: var(--ha-card-border-color);
+                  --ha-card-border-width: 1.5px;
+                  --card-background-color: var(--primary-background-color);
+          - type: custom:button-card
+            template: status_card2
+            show_name: false
+            entity: script.hemma
+            icon: mdi:home-outline
+            view_layout:
+              grid-area: hemma
+            card_mod:
+              style: |
+                ha-card {
+                  --ha-card-border-color: "#dfdfd";
+                  --ha-card-border-width: 1px;
+          - type: custom:button-card
+            template: status_card2
+            show_name: false
+            entity: script.hemma
+            icon: mdi:home-export-outline
+            view_layout:
+              grid-area: borta
+            card_mod:
+              style: |
+                ha-card {
+                  --ha-card-border-color: var(--ha-card-border-color);
+                  --ha-card-border-width: 1.5px;
+                  --card-background-color: var(--primary-background-color);
+          - type: custom:button-card
+            template: status_card2
+            show_name: false
+            entity: script.hemma
+            icon: mdi:weather-night
+            view_layout:
+              grid-area: natt
+            card_mod:
+              style: |
+                ha-card {
+                  --ha-card-border-color: var(--ha-card-border-color);
+                  --ha-card-border-width: 1.5px;
+                  --card-background-color: var(--primary-background-color);
+      - type: custom:mushroom-template-card
+        primary: God morgon, {{user}}.
+        secondary: Hemma är det soligt och 22°C
+        icon: ''
+        card_mod:
+          style: |
+            ha-card {
+              --card-primary-font-size: 20px;
+              --card-secondary-font-size: 12px;
+              --ha-card-border-color: rgba(0,0,0,0);
+              --card-background-color: rgba(0,0,0,0);              
+            }
+      - type: custom:button-card
+        name: Rum
+        styles:
+          name:
+            - font-size: 14pt
+            - font-weight: 300
+            - justify-self: start
+          card:
+            - padding: 5px 0 5px 10px
+            - background: rgba(white,0)
