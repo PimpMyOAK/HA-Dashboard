@@ -1,915 +1,1615 @@
 button_card_templates:
-  room_card:
+  header:
     styles:
       card:
-        - justify-content: center
-        - padding: 10px
-        - height: 65px
-      img_cell:
-        - background-color: var(--primary-background-color)
-        - border-radius: 30%
-        - border: 1px solid var(--ha-card-border-color)
-        - height: 45px
-        - width: 45px
-        - position: absolute
-        - left: 0
-        - margin: 10px
-      icon:
-        - color: white
+        - border: none !important
       name:
-        - font-size: 12pt
         - font-weight: 300
-        - font-family: Roboto
-        - letter-spacing: 2px
-        - position: absolute
-        - left: 0
-        - margin-left: 70px
+        - justify-self: start
+        - align-self: end
+        - padding-left: 15px
+        - font-family: lato !important
       custom_fields:
-        arrow:
-          - width: 25px
-          - height: 25px
-          - color: white
-          - background-color: '#1d1c21'
-          - color: cecdd0
-          - border: 1px solid var(--ha-card-border-color)
-          - border-radius: 100%
-          - position: absolute
-          - right: 6%
-          - padding: 3px
-  status_card:
+        n2:
+          - font-weight: 600
+          - color: '#2e5360'
+          - justify-self: start
+          - align-self: start
+          - padding-left: 15px
+          - font-family: lato !important
+  selector:
     styles:
       card:
+        - border: none !important
+        - border-radius: 0 !important
+        - padding-right: 20px !important
+        - padding-left: 20px !important
+        - padding-top: 0 !important
+        - padding-bottom: 0 !important
+      rum:
+        - font-weight: 300
+        - color: '#2e5360'
+        - justify-self: start
+        - align-self: start
+        - padding-left: 10px
+  entity_card:
+    styles:
+      card:
+        - padding-top: 3px
+        - padding-bottom: 11px
+      name:
+        - font-weight: 300
+        - justify-self: start
+        - align-self: end
+        - padding-left: 5px
+        - font-family: lato !important
+        - font-size: 18px
+        - align-self: end
+      label:
+        - font-weight: 300
+        - justify-self: start
+        - align-self: end
+        - padding-left: 5px
+        - font-family: lato !important
+        - align-self: start
+        - font-size: 14px
+        - color: rgba(142, 142, 142, 1)
+      img_cell:
+        - background-color: white
+        - border-radius: 100%
         - height: 50px
         - width: 50px
-        - justify-content: center
-        - padding-right: 0px
-      icon:
-        - color: '#dfdfdf'
-        - width: 20px
-  status_card2:
-    styles:
-      card:
-        - height: 50px
-        - width: 80px
-        - justify-content: center
-      icon:
-        - color: '#dfdfdf'
-        - width: 20px
-  header1:
-    styles:
-      card:
-        - '--card-background-color': rgba(0,0,0,0)
-        - '--ha-card-border-color': rgba(0,0,0,0)
-        - padding-top: 10px
-        - padding-bottom: 10px
-        - height: 30px
-        - margin: 0px
-      name:
-        - font-size: 16pt
-        - font-weight: 300
-        - font-family: Roboto
-        - letter-spacing: 1px
-        - position: absolute
         - left: 0
-        - margin-left: 10px
-        - margin-top: 0px
-        - padding-top: 0px
-  header2:
-    styles:
-      card:
-        - '--card-background-color': rgba(0,0,0,0)
-        - '--ha-card-border-color': rgba(0,0,0,0)
-        - padding-top: 10px
-        - padding-bottom: 0px
-        - height: 30px
-        - margin: 0px
-      name:
-        - color: '#dfdfdf'
-        - font-size: 10pt
-        - font-weight: 300
-        - font-family: Roboto
-        - letter-spacing: 0.5px
-        - position: absolute
-        - left: 0
-        - margin-left: 15px
-        - padding: 0px
   controls:
     styles:
       card:
         - background: rgba(0,0,0,0)
         - border: rgba(0,0,0,0)
       img_cell:
-        - background: rgba(29, 28, 33, 1)
-        - border: 1px solid rgba(85, 88, 94, 1)
+        - background: rgba(46, 83, 96, 1)
+        - border: none
         - border-radius: 100%
-        - height: 30px
-        - width: 30px
+        - height: 25px
+        - width: 25px
         - justify-self: start
       icon:
         - width: 20px
         - color: white
-  spacer:
-    styles:
-      card:
-        - height: 10px
-        - padding: 0px
-        - margin-top: 15px
-        - border-radius: 0px
-        - border-width: 0px
-        - border-top: 4px solid rgba(100, 103, 120, 1)
-        - background-color: rgba (255, 255, 255, 0)
 views:
   - title: Home
-    theme: dark_blue
+    visible:
+      - user: 6bd291cdc54f4cbd9770ea870046ed17
+      - user: 7ac8944df98d440b90bb34f310c94dfe
     cards:
-      - type: custom:layout-card
-        layout_type: custom:grid-layout
-        layout:
-          grid-template-columns: 83% 22%
-          grid-template-rows: 30px 30px 30px 30px 30px 30px 30px 30px 30px
-          grid-template-areas: |
-            "header spacer1"
-            "picture status_morgon"
-            "picture status_morgon"
-            "picture status_hemma"
-            "picture status_hemma"
-            "picture status_borta"
-            "picture status_borta"
-            "picture status_natt"
-            "spacer status_natt"
-        cards:
-          - type: custom:layout-break
-            view_layout:
-              grid-area: spacer1
-          - type: picture
-            image: /local/Images/HomeOutside.png
-            view_layout:
-              grid-area: picture
-            card_mod:
-              style: |
-                ha-card {
-                  --ha-card-border-color: rgba(0,0,0,0);
-                  --card-background-color: rgba(0,0,0,0);
-                  padding-right: 10px
-                  }              
-          - type: custom:button-card
-            template: status_card
-            show_name: false
-            entity: script.hemma
-            icon: mdi:weather-sunset-up
-            view_layout:
-              grid-area: status_morgon
-            card_mod:
-              style: |
-                ha-card {
-                  --ha-card-border-color: var(--ha-card-border-color);
-                  --ha-card-border-width: 2px;
-                  --card-background-color: var(--primary-background-color);
-          - type: custom:button-card
-            template: status_card
-            show_name: false
-            entity: script.morgon
-            icon: mdi:home-outline
-            view_layout:
-              grid-area: status_hemma
-            card_mod:
-              style: |
-                ha-card {
-                  --ha-card-border-color: "#dfdfd";
-                  --ha-card-border-width: 1px;
-                  --card-background-color: var(--secondary-background-color);
-          - type: custom:button-card
-            template: status_card
-            show_name: false
-            entity: script.borta
-            icon: mdi:home-export-outline
-            view_layout:
-              grid-area: status_borta
-            card_mod:
-              style: |
-                ha-card {
-                  --ha-card-border-color: var(--ha-card-border-color);
-                  --ha-card-border-width: 2px;
-                  --card-background-color: var(--primary-background-color);
-          - type: custom:button-card
-            template: status_card
-            show_name: false
-            entity: script.natt
-            icon: mdi:weather-night
-            view_layout:
-              grid-area: status_natt
-            card_mod:
-              style: |
-                ha-card {
-                  --ha-card-border-color: var(--ha-card-border-color);
-                  --ha-card-border-width: 2px;
-                  --card-background-color: var(--primary-background-color);
+      - type: custom:button-card
+        template: header
+        name: Välkommen hem
+        show_icon: false
+        icon: mdi:home-outline
+        show_state: false
+        tap_action:
+          action: none
+        custom_fields:
+          picture:
+            card:
+              type: custom:button-card
+              entity: light.lightgroup_livingroom_floorlamp
+              show_icon: true
+              show_name: false
+              show_state: false
+              show_entity_picture: true
+              entity_picture: |
+                [[[
+                  if ( user.id == '6bd291cdc54f4cbd9770ea870046ed17')
+                    return '/local/Images/Profile_JEE.png';
+                  if ( user.id == '7ac8944df98d440b90bb34f310c94dfe')
+                    return '/local/Images/Profile_AÅ.png';
+                ]]]
+              styles:
+                card:
+                  - border: rgba(0,0,0,0)
+                  - background: rgba(0,0,0,0)
+                entity_picture:
+                  - width: 75%
+                img_cell:
+                  - justify-content: end
+          n2:
+            card:
+              type: custom:button-card
+              entity: '[[[ return "person." + user.name.toLowerCase(); ]]]'
+              show_entity_picture: true
+              name: '[[[ return  user.name ]]]'
+              styles:
+                card:
+                  - border: none !important
+                  - padding: 0 0 5px 0
+                name:
+                  - font-weight: 600
+                  - color: '#2e5360'
+                  - font-family: lato !important
+          homeState:
+            card:
+              type: custom:mushroom-select-card
+              entity: input_select.home_state
+              secondary_info: none
+              icon: mdi:home-outline
+              name: ' '
+              fill_container: false
+              card_mod:
+                style:
+                  mushroom-select-option-control$:
+                    mushroom-select$: |
+                      .mdc-select__anchor{
+                        background: none !important;
+                      }
+                      .mdc-line-ripple::before {
+                        border-bottom-width: 0px !important;
+                      }
+                      .mdc-line-ripple::after {
+                        border-bottom-width: 0px !important;
+                      }
+                      .mdc-select__selected-text {
+                        color: transparent !important;
+                      }
+                      .mdc-select__dropdown-icon {
+                        fill: transparent !important;  
+                      }
+                      .mdc-select {
+                        position: absolute !important;
+                        width: 100% !important;
+                        --select-height: 75px;
+                        top: 0%;
+                        right: 0%;
+                      }
+                  .: |
+                    ha-card {
+                     background: none;
+                     border: none;
+                     padding-bottom: 0 !important;
+                     padding-top: 35% !important;
+                    }
+        styles:
+          grid:
+            - grid-template-areas: |
+                "picture n homeState"
+                "picture n2 homeState"
+            - grid-template-rows: 0.75fr 0.75fr
+            - grid-template-columns: 20% 60% 20%
+          card:
+            - padding: 0
+      - type: custom:button-card
+        template: selector
+        show_icon: false
+        show_state: false
+        tap_action:
+          action: none
+        custom_fields:
+          rum:
+            card:
+              type: custom:button-card
+              name: Rum
+              tap_action:
+                action: call-service
+                service: input_boolean.turn_off
+                service_data:
+                  entity_id: input_boolean.toggle_ui_on_rum_off_enheter
+              styles:
+                card:
+                  - border: none !important
+                  - font-family: lato !important
+                  - font-weight: |
+                      [[[
+                        if(states['input_boolean.toggle_ui_on_rum_off_enheter'].state == 'off')
+                          return "400"
+                        else
+                          return "300"
+                      ]]]
+                  - color: |
+                      [[[
+                        if(states['input_boolean.toggle_ui_on_rum_off_enheter'].state == 'off')
+                          return "(rgb(46, 83, 96)"
+                        else
+                          return "rgb(30, 30, 30)"
+                      ]]]
+          enheter:
+            card:
+              type: custom:button-card
+              name: Enheter
+              tap_action:
+                action: call-service
+                service: input_boolean.turn_on
+                service_data:
+                  entity_id: input_boolean.toggle_ui_on_rum_off_enheter
+              styles:
+                card:
+                  - border: none !important
+                  - font-family: lato !important
+                  - font-weight: |
+                      [[[
+                        if(states['input_boolean.toggle_ui_on_rum_off_enheter'].state == 'on')
+                          return "400"
+                        else
+                          return "300"
+                      ]]]
+                  - color: |
+                      [[[
+                        if(states['input_boolean.toggle_ui_on_rum_off_enheter'].state == 'on')
+                          return "(rgb(46, 83, 96)"
+                        else
+                          return "rgb(30, 30, 30)"
+                      ]]]
+          rStatus:
+            card:
+              type: custom:button-card
+              show_icon: true
+              show_name: false
+              show_state: false
+              show_entity_picture: true
+              entity_picture: /local/Images/1x1.png
+              tap_action:
+                action: call-service
+                service: input_boolean.turn_off
+                service_data:
+                  entity_id: input_boolean.toggle_ui_on_rum_off_enheter
+              styles:
+                card:
+                  - background: |
+                      [[[
+                        if(states['input_boolean.toggle_ui_on_rum_off_enheter'].state == 'off')
+                          return "rgba(46, 83, 96, 1)"
+                        else
+                          return "rgba(46, 83, 96, 0)"
+                      ]]]
+                  - border_bottom: |
+                      [[[
+                        if(states['input_boolean.toggle_ui_on_rum_off_enheter'].state == 'off')
+                          return "none"
+                        else
+                          return "1px solid rgba(228, 228, 228, 1)"
+                      ]]]
+                  - padding: 0
+                  - border-radius: 0
+                entity_picture:
+                  - height: |
+                      [[[
+                        if(states['input_boolean.toggle_ui_on_rum_off_enheter'].state == 'off')
+                          return "4px"
+                        else
+                          return "1px"
+                      ]]]
+          eStatus:
+            card:
+              type: custom:button-card
+              show_icon: true
+              show_name: false
+              show_state: false
+              show_entity_picture: true
+              entity_picture: /local/Images/1x1.png
+              tap_action:
+                action: call-service
+                service: input_boolean.turn_on
+                service_data:
+                  entity_id: input_boolean.toggle_ui_on_rum_off_enheter
+              styles:
+                card:
+                  - background: |
+                      [[[
+                        if(states['input_boolean.toggle_ui_on_rum_off_enheter'].state == 'on')
+                          return "rgba(46, 83, 96, 1)"
+                        else
+                          return "rgba(46, 83, 96, 0)"
+                      ]]]
+                  - padding: 0
+                  - border-radius: 0
+                  - border-bottom: |
+                      [[[
+                        if(states['input_boolean.toggle_ui_on_rum_off_enheter'].state == 'on')
+                          return "none"
+                        else
+                          return "1px solid rgba(228, 228, 228, 1)"
+                      ]]]
+                entity_picture:
+                  - height: |
+                      [[[
+                        if(states['input_boolean.toggle_ui_on_rum_off_enheter'].state == 'on')
+                          return "4px"
+                        else
+                          return "1px"
+                      ]]]
+        styles:
+          grid:
+            - grid-template-areas: |
+                "rum enheter"
+                "rStatus eStatus"
+            - grid-template-rows: 1fr 2px
+            - grid-template-columns: 50% 50%
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.toggle_ui_on_rum_off_enheter
+            state: 'off'
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:button-card
+              name: Vardagsrum
+              styles:
+                name:
+                  - font-size: 14pt
+                  - font-weight: 400
+                  - justify-self: start
+                  - font-weight: 400
+                  - color: rgba(30, 30, 30, 1)
+                card:
+                  - padding: 15px 0 5px 15px
+                  - background: rgba(0,0,0,0)
+                  - border: none
+                  - font-family: Lato
+            - type: custom:button-card
+              template: entity_card
+              name: Soffbord
+              label: Taklamapa
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                toggle:
+                  card:
+                    type: custom:button-card
+                    entity: light.bulb_livingroom_sofa_light
+                    tap_action:
+                      action: toggle
+                    show_icon: true
+                    show_name: false
+                    show_state: false
+                    show_entity_picture: true
+                    state:
+                      - entity_picture: /local/Images/toggle_on_dblue.png
+                        value: 'on'
+                      - entity_picture: /local/Images/toggle_off_gray.png
+                        value: 'off'
+                    styles:
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+                      entity_picture:
+                        - width: 75%
+                        - padding-top: 5px
+                icon:
+                  card:
+                    type: custom:button-card
+                    entity: light.bulb_livingroom_sofa_light
+                    icon: mdi:lightbulb-on-outline
+                    show_name: false
+                    tap_action:
+                      action: more-info
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n toggle"
+                      "icon l toggle"
+                  - grid-template-rows: 1.15fr 0.85fr
+                  - grid-template-columns: 20% 60% 20%
+            - type: custom:button-card
+              template: entity_card
+              name: Tv-hörnet
+              label: Golvlampa
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                toggle:
+                  card:
+                    type: custom:button-card
+                    entity: light.lightgroup_livingroom_floorlamp
+                    show_icon: true
+                    show_name: false
+                    show_entity_picture: true
+                    state:
+                      - entity_picture: /local/Images/toggle_on_dblue.png
+                        value: 'on'
+                      - entity_picture: /local/Images/toggle_off_gray.png
+                        value: 'off'
+                    styles:
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+                      entity_picture:
+                        - width: 75%
+                        - padding-top: 5px
+                icon:
+                  card:
+                    type: custom:button-card
+                    entity: light.lightgroup_livingroom_floorlamp
+                    icon: mdi:lightbulb-on-outline
+                    show_name: false
+                    tap_action:
+                      action: more-info
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n toggle"
+                      "icon l toggle"
+                  - grid-template-rows: 1.15fr 0.85fr
+                  - grid-template-columns: 20% 60% 20%
+            - type: custom:button-card
+              template: entity_card
+              name: Stora Fönstret
+              label: Rullgardin
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                icon:
+                  card:
+                    type: custom:button-card
+                    entity: cover.vardagsrum_rullgardiner
+                    icon: mdi:window-open-variant
+                    show_name: false
+                    tap_action:
+                      action: more-info
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+                down:
+                  card:
+                    type: custom:button-card
+                    tap_action:
+                      action: call-service
+                      service: cover.open_cover
+                      service_data:
+                        entity_id: cover.vardagsrum_rullgardiner
+                    show_name: false
+                    icon: mdi:chevron-up
+                    template: controls
+                stop:
+                  card:
+                    type: custom:button-card
+                    entity: cover.vardagsrum_rullgardiner
+                    tap_action:
+                      action: call-service
+                      service: cover.stop_cover
+                      service_data:
+                        entity_id: cover.vardagsrum_rullgardiner
+                    show_name: false
+                    icon: mdi:stop
+                    template: controls
+                up:
+                  card:
+                    type: custom:button-card
+                    entity: cover.vardagsrum_rullgardiner
+                    tap_action:
+                      action: call-service
+                      service: cover.close_cover
+                      service_data:
+                        entity_id: cover.vardagsrum_rullgardiner
+                    show_name: false
+                    icon: mdi:chevron-down
+                    template: controls
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n down stop up"
+                      "icon l down stop up"
+                  - grid-template-rows: 1.15fr 0.85fr
+                  - grid-template-columns: 20% 50% 10% 10% 10%
+            - type: custom:button-card
+              name: Sovrum
+              styles:
+                name:
+                  - font-size: 14pt
+                  - font-weight: 400
+                  - justify-self: start
+                  - font-weight: 400
+                  - color: rgba(30, 30, 30, 1)
+                card:
+                  - padding: 15px 0 5px 15px
+                  - background: rgba(0,0,0,0)
+                  - border: none
+                  - font-family: Lato
+            - type: custom:button-card
+              template: entity_card
+              name: Säng
+              label: Taklampa
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                toggle:
+                  card:
+                    type: custom:button-card
+                    entity: light.sovrumtaklampa
+                    tap_action:
+                      action: toggle
+                    show_icon: true
+                    show_name: false
+                    show_state: false
+                    show_entity_picture: true
+                    state:
+                      - entity_picture: /local/Images/toggle_on_dblue.png
+                        value: 'on'
+                      - entity_picture: /local/Images/toggle_off_gray.png
+                        value: 'off'
+                    styles:
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+                      entity_picture:
+                        - width: 75%
+                        - padding-top: 5px
+                icon:
+                  card:
+                    type: custom:button-card
+                    entity: light.sovrumtaklampa
+                    icon: mdi:lightbulb-on-outline
+                    show_name: false
+                    tap_action:
+                      action: more-info
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n toggle"
+                      "icon l toggle"
+                  - grid-template-rows: 1.15fr 0.85fr
+                  - grid-template-columns: 20% 60% 20%
+            - type: custom:button-card
+              template: entity_card
+              name: Nattduksbord
+              label: Bordslampor
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                toggle:
+                  card:
+                    type: custom:button-card
+                    entity: light.lightgroup_bedroom_nightstand
+                    show_icon: true
+                    show_name: false
+                    show_entity_picture: true
+                    state:
+                      - entity_picture: /local/Images/toggle_on_dblue.png
+                        value: 'on'
+                      - entity_picture: /local/Images/toggle_off_gray.png
+                        value: 'off'
+                    styles:
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+                      entity_picture:
+                        - width: 75%
+                        - padding-top: 5px
+                icon:
+                  card:
+                    type: custom:button-card
+                    entity: light.lightgroup_livingroom_floorlamp
+                    icon: mdi:lightbulb-on-outline
+                    show_name: false
+                    tap_action:
+                      action: more-info
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n toggle"
+                      "icon l toggle"
+                  - grid-template-rows: 1.15fr 0.85fr
+                  - grid-template-columns: 20% 60% 20%
+            - type: custom:button-card
+              template: entity_card
+              name: Stora Fönstret
+              label: Rullgardin
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                icon:
+                  card:
+                    type: custom:button-card
+                    entity: null
+                    icon: mdi:window-open-variant
+                    show_name: false
+                    tap_action:
+                      action: more-info
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+                down:
+                  card:
+                    type: custom:button-card
+                    tap_action:
+                      action: call-service
+                      service: cover.open_cover
+                      service_data:
+                        entity_id: null
+                    show_name: false
+                    icon: mdi:chevron-up
+                    template: controls
+                stop:
+                  card:
+                    type: custom:button-card
+                    entity: null
+                    tap_action:
+                      action: call-service
+                      service: cover.stop_cover
+                      service_data:
+                        entity_id: null
+                    show_name: false
+                    icon: mdi:stop
+                    template: controls
+                up:
+                  card:
+                    type: custom:button-card
+                    entity: null
+                    tap_action:
+                      action: call-service
+                      service: cover.close_cover
+                      service_data:
+                        entity_id: null
+                    show_name: false
+                    icon: mdi:chevron-down
+                    template: controls
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n down stop up"
+                      "icon l down stop up"
+                  - grid-template-rows: 1.15fr 0.85fr
+                  - grid-template-columns: 20% 50% 10% 10% 10%
+            - type: custom:button-card
+              template: entity_card
+              name: Lilla Fönstret
+              label: Rullgardin
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                icon:
+                  card:
+                    type: custom:button-card
+                    entity: cover.blind_bedroom_smallwindow_cover
+                    icon: mdi:window-open-variant
+                    show_name: false
+                    tap_action:
+                      action: more-info
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+                down:
+                  card:
+                    type: custom:button-card
+                    tap_action:
+                      action: call-service
+                      service: cover.open_cover
+                      service_data:
+                        entity_id: ncover.blind_bedroom_smallwindow_cover
+                    show_name: false
+                    icon: mdi:chevron-up
+                    template: controls
+                stop:
+                  card:
+                    type: custom:button-card
+                    entity: cover.blind_bedroom_smallwindow_cover
+                    tap_action:
+                      action: call-service
+                      service: cover.stop_cover
+                      service_data:
+                        entity_id: cover.blind_bedroom_smallwindow_cover
+                    show_name: false
+                    icon: mdi:stop
+                    template: controls
+                up:
+                  card:
+                    type: custom:button-card
+                    entity: null
+                    tap_action:
+                      action: call-service
+                      service: cover.close_cover
+                      service_data:
+                        entity_id: cover.blind_bedroom_smallwindow_cover
+                    show_name: false
+                    icon: mdi:chevron-down
+                    template: controls
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n down stop up"
+                      "icon l down stop up"
+                  - grid-template-rows: 1.15fr 0.85fr
+                  - grid-template-columns: 20% 50% 10% 10% 10%
+            - type: custom:button-card
+              name: Kök
+              styles:
+                name:
+                  - font-size: 14pt
+                  - font-weight: 400
+                  - justify-self: start
+                  - font-weight: 400
+                  - color: rgba(30, 30, 30, 1)
+                card:
+                  - padding: 15px 0 5px 15px
+                  - background: rgba(0,0,0,0)
+                  - border: none
+                  - font-family: Lato
+            - type: custom:button-card
+              template: entity_card
+              name: Köksö
+              label: Taklamapa
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                toggle:
+                  card:
+                    type: custom:button-card
+                    entity: light.lightgroup_kitchen_island
+                    tap_action:
+                      action: toggle
+                    show_icon: true
+                    show_name: false
+                    show_state: false
+                    show_entity_picture: true
+                    state:
+                      - entity_picture: /local/Images/toggle_on_dblue.png
+                        value: 'on'
+                      - entity_picture: /local/Images/toggle_off_gray.png
+                        value: 'off'
+                    styles:
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+                      entity_picture:
+                        - width: 75%
+                        - padding-top: 5px
+                icon:
+                  card:
+                    type: custom:button-card
+                    entity: light.lightgroup_kitchen_island
+                    icon: mdi:lightbulb-on-outline
+                    show_name: false
+                    tap_action:
+                      action: more-info
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n toggle"
+                      "icon l toggle"
+                  - grid-template-rows: 1.15fr 0.85fr
+                  - grid-template-columns: 20% 60% 20%
+            - type: custom:button-card
+              template: entity_card
+              name: Matsalsbord
+              label: Taklampa
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                toggle:
+                  card:
+                    type: custom:button-card
+                    entity: light.lightdimmer_kitchen_diningtable
+                    show_icon: true
+                    show_name: false
+                    show_entity_picture: true
+                    state:
+                      - entity_picture: /local/Images/toggle_on_dblue.png
+                        value: 'on'
+                      - entity_picture: /local/Images/toggle_off_gray.png
+                        value: 'off'
+                    styles:
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+                      entity_picture:
+                        - width: 75%
+                        - padding-top: 5px
+                icon:
+                  card:
+                    type: custom:button-card
+                    entity: light.lightdimmer_kitchen_diningtable
+                    icon: mdi:lightbulb-on-outline
+                    show_name: false
+                    tap_action:
+                      action: more-info
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n toggle"
+                      "icon l toggle"
+                  - grid-template-rows: 1.15fr 0.85fr
+                  - grid-template-columns: 20% 60% 20%
+            - type: custom:button-card
+              template: entity_card
+              name: Matsal
+              label: Rullgardin
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                icon:
+                  card:
+                    type: custom:button-card
+                    entity: cover.kok_rullgardiner
+                    icon: mdi:window-open-variant
+                    show_name: false
+                    tap_action:
+                      action: more-info
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+                down:
+                  card:
+                    type: custom:button-card
+                    tap_action:
+                      action: call-service
+                      service: cover.open_cover
+                      service_data:
+                        entity_id: cover.kok_rullgardiner
+                    show_name: false
+                    icon: mdi:chevron-up
+                    template: controls
+                stop:
+                  card:
+                    type: custom:button-card
+                    entity: cover.kok_rullgardiner
+                    tap_action:
+                      action: call-service
+                      service: cover.stop_cover
+                      service_data:
+                        entity_id: cover.kok_rullgardiner
+                    show_name: false
+                    icon: mdi:stop
+                    template: controls
+                up:
+                  card:
+                    type: custom:button-card
+                    entity: cover.vardagsrum_rullgardiner
+                    tap_action:
+                      action: call-service
+                      service: cover.close_cover
+                      service_data:
+                        entity_id: cover.kok_rullgardiner
+                    show_name: false
+                    icon: mdi:chevron-down
+                    template: controls
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n down stop up"
+                      "icon l down stop up"
+                  - grid-template-rows: 1.15fr 0.85fr
+                  - grid-template-columns: 20% 50% 10% 10% 10%
+            - type: custom:button-card
+              name: Hall
+              styles:
+                name:
+                  - font-size: 14pt
+                  - font-weight: 400
+                  - justify-self: start
+                  - font-weight: 400
+                  - color: rgba(30, 30, 30, 1)
+                card:
+                  - padding: 15px 0 5px 15px
+                  - background: rgba(0,0,0,0)
+                  - border: none
+                  - font-family: Lato
+            - type: custom:button-card
+              template: entity_card
+              name: Hallen
+              label: Taklamapa
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                toggle:
+                  card:
+                    type: custom:button-card
+                    entity: light.lightgroup_hallway_ceiling
+                    tap_action:
+                      action: toggle
+                    show_icon: true
+                    show_name: false
+                    show_state: false
+                    show_entity_picture: true
+                    state:
+                      - entity_picture: /local/Images/toggle_on_dblue.png
+                        value: 'on'
+                      - entity_picture: /local/Images/toggle_off_gray.png
+                        value: 'off'
+                    styles:
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+                      entity_picture:
+                        - width: 75%
+                        - padding-top: 5px
+                icon:
+                  card:
+                    type: custom:button-card
+                    entity: light.lightgroup_hallway_ceiling
+                    icon: mdi:lightbulb-on-outline
+                    show_name: false
+                    tap_action:
+                      action: more-info
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n toggle"
+                      "icon l toggle"
+                  - grid-template-rows: 1.15fr 0.85fr
+                  - grid-template-columns: 20% 60% 20%
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.toggle_ui_on_rum_off_enheter
+            state: 'on'
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:button-card
+              name: Vardagsrum
+              styles:
+                name:
+                  - font-size: 14pt
+                  - font-weight: 400
+                  - justify-self: start
+                  - font-weight: 400
+                  - color: rgba(30, 30, 30, 1)
+                card:
+                  - padding: 15px 0 5px 15px
+                  - background: rgba(0,0,0,0)
+                  - border: none
+                  - font-family: Lato
+            - type: custom:button-card
+              template: entity_card
+              name: Högtalare
+              label: Audio Pro A26
+              entity: media_player.audio_pro_a26_vardagsrum_2
+              tap_action:
+                action: navigate
+                navigation_path: '#AudioProA26Vardagsrum'
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                power:
+                  card:
+                    type: custom:button-card
+                    tap_action:
+                      action: call-service
+                      service: script.toggle_audio_pro_26_vardagsrum_on
+                    icon: mdi:power
+                    show_name: false
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+                icon:
+                  card:
+                    type: custom:button-card
+                    icon: mdi:speaker-wireless
+                    show_name: false
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n power"
+                      "icon l power"
+                  - grid-template-rows: 1fr 1fr
+                  - grid-template-columns: 20% 60% 20%
+            - type: custom:button-card
+              name: Sovrum
+              styles:
+                name:
+                  - font-size: 14pt
+                  - font-weight: 400
+                  - justify-self: start
+                  - font-weight: 400
+                  - color: rgba(30, 30, 30, 1)
+                card:
+                  - padding: 15px 0 5px 15px
+                  - background: rgba(0,0,0,0)
+                  - border: none
+                  - font-family: Lato
+            - type: custom:button-card
+              template: entity_card
+              name: Högtalare
+              label: Audio Pro A10
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                icon:
+                  card:
+                    type: custom:button-card
+                    entity: media_player.audio_pro_a10_sovrum_2
+                    icon: mdi:speaker-wireless
+                    show_name: false
+                    tap_action:
+                      action: more-info
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n power"
+                      "icon l power"
+                  - grid-template-rows: 1fr 1fr
+                  - grid-template-columns: 20% 60% 20%
+            - type: custom:button-card
+              name: Badrum
+              styles:
+                name:
+                  - font-size: 14pt
+                  - font-weight: 400
+                  - justify-self: start
+                  - font-weight: 400
+                  - color: rgba(30, 30, 30, 1)
+                card:
+                  - padding: 15px 0 5px 15px
+                  - background: rgba(0,0,0,0)
+                  - border: none
+                  - font-family: Lato
+            - type: custom:button-card
+              template: entity_card
+              name: Högtalare
+              label: Audio Pro A10
+              show_icon: false
+              show_label: true
+              show_picture_entity: true
+              custom_fields:
+                icon:
+                  card:
+                    type: custom:button-card
+                    entity: media_player.audio_pro_a10_badrum
+                    icon: mdi:speaker-wireless
+                    show_name: false
+                    tap_action:
+                      action: more-info
+                    color: rgba(46, 83, 96, 1)
+                    styles:
+                      img_cell:
+                        - background-color: white
+                        - border-radius: 100%
+                        - height: 50px
+                        - width: 50px
+                        - left: 0
+                      card:
+                        - border: rgba(0,0,0,0)
+                        - background: rgba(0,0,0,0)
+              styles:
+                card:
+                  - border: solid rgba(228, 228, 228, 1)
+                  - border-width: 0 0 1px 0
+                  - border-radius: 0
+                grid:
+                  - grid-template-areas: |
+                      "icon n power"
+                      "icon l power"
+                  - grid-template-rows: 1fr 1fr
+                  - grid-template-columns: 20% 60% 20%
       - type: vertical-stack
         cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: '#AudioProA26Vardagsrum'
+            name: Audio Pro A26 Vardagsrum
+            icon: ''
+            show_state: false
+            show_attribute: false
+            attribute: volume_level
+            show_icon: false
+            force_icon: false
+            show_name: true
+            hide_backdrop: false
+            styles: |-
+              .bubble-button-card-container {
+                background: rgba(0,0,0,0) !important;
+                border-radius: 0%;
+                margin-left: -50px
+              }
+
+              .bubble-close-button {
+                background: rgba(255,255,255,0.75) !important;
+                height: 35px !important;
+                width: 35px !important;
+                align-self: center;
+                color: rgba(46, 83, 96, 1) !important;
+                --mdc-icon-size: 20px !important;
+              }
+
+              .bubble-icon-container {
+                background-color: rgba(0,0,0,0);
+              }
+
+              .bubble-name {
+                font-size: 20px !important; 
+                font-family: Lato;
+              }
+
+              .bubble-name-container {
+                line-height: 25px;
+              }
+            bg_color: ''
+            bg_opacity: '0'
+            scrolling_effect: false
+            show_last_changed: false
+            button_type: name
+            auto_close: '9999999'
           - type: custom:button-card
-            name: Rum
+            name: Volym
+            custom_fields:
+              vDown:
+                card:
+                  type: custom:button-card
+                  icon: mdi:volume-minus
+                  tap_action:
+                    action: call-service
+                    service: media_player.volume_down
+                    data:
+                      entity_id: media_player.audio_pro_a26_vardagsrum_2
+                  styles:
+                    card:
+                      - background-color: rgba(0,0,0,0)
+                      - border: none
+                    icon:
+                      - color: white
+                      - height: 28px
+                      - width: 28px
+              vUp:
+                card:
+                  type: custom:button-card
+                  icon: mdi:volume-plus
+                  tap_action:
+                    action: call-service
+                    service: media_player.volume_up
+                    data:
+                      entity_id: media_player.audio_pro_a26_vardagsrum_2
+                  styles:
+                    card:
+                      - background-color: rgba(0,0,0,0)
+                      - border: none
+                    icon:
+                      - color: white
+                      - height: 28px
+                      - width: 28px
             styles:
               name:
-                - font-size: 14pt
-                - font-weight: 400
+                - font-size: 16pt
+                - font-weight: 300
                 - justify-self: start
+                - color: white
               card:
-                - padding: 5px 0 5px 15px
+                - padding: 20px 0 0 5px
                 - background: rgba(0,0,0,0)
                 - border: none
+                - font-family: Lato
+              grid:
+                - grid-template-areas: |
+                    "n vDown vUp"
+                - grid-template-rows: 1fr
+                - grid-template-columns: 70% 15% 15%
           - type: custom:button-card
-            template: room_card
-            name: Vardagsrum
-            show_icon: true
-            show_state: false
-            entity: input_boolean.toggle_vardagsrum_ui
+            show_name: false
+            template: entity_card
+            entity: media_player.audio_pro_a26_vardagsrum_2
             tap_action:
-              action: call-service
-              service: input_boolean.toggle
-              service_data:
-                entity_id: input_boolean.toggle_vardagsrum_ui
+              action: none
+            show_icon: false
+            show_label: true
+            show_picture_entity: true
             custom_fields:
-              arrow: |
-                [[[
-                    if (states['input_boolean.toggle_vardagsrum_ui'].state == 'on')
-                      return `<ha-icon
-                icon="mdi:chevron-down">
-                </ha-icon>`
-                    return `<ha-icon
-                icon="mdi:chevron-right">
-                </ha-icon>`;
-                  ]]]
-                  
-          - type: conditional
-            conditions:
-              - condition: state
-                entity: input_boolean.toggle_vardagsrum_ui
-                state: 'on'
-            card:
-              type: vertical-stack
-              cards:
-                - type: horizontal-stack
-                  cards:
-                    - type: custom:button-card
-                      entity: light.lightgroup_livingroom_floorlamp
-                      name: Belysning
+              vMute:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: script.mute_unmute_a26
+                  icon: mdi:volume-high
+                  styles:
+                    card:
+                      - background-color: rgba(0,0,0,0)
+                      - border: none
+                    icon:
+                      - color: white
+                      - height: 28px
+                      - width: 28px
+              vSlider:
+                card:
+                  type: entities
+                  entities:
+                    - type: custom:slider-entity-row
+                      entity: media_player.audio_pro_a26_vardagsrum_2
                       show_icon: false
-                      show_state: false
-                      tap_action:
-                        action: none
-                      custom_fields:
-                        n2: Golvlampa
-                        toggle:
-                          card:
-                            type: custom:button-card
-                            name: toggle
-                            entity: light.lightgroup_livingroom_floorlamp
-                            show_icon: true
-                            show_name: false
-                            show_state: false
-                            show_entity_picture: true
-                            state:
-                              - entity_picture: /local/Images/toggle_on_light.png
-                                value: 'on'
-                              - entity_picture: /local/Images/toggle_off.png
-                                value: 'off'
-                            styles:
-                              card:
-                                - border: rgba(0,0,0,0)
-                                - background: rgba(0,0,0,0)
-                              entity_picture:
-                                - width: 100%
-                        settings:
-                          card:
-                            type: custom:button-card
-                            icon: mdi:cog-outline
-                            show_name: false
-                            show_state: false
-                            entity: light.lightgroup_livingroom_floorlamp
-                            color: var(--primary-text-color)
-                            tap_action:
-                              action: more-info
-                            styles:
-                              card:
-                                - border: rgba(0,0,0,0)
-                                - background: rgba(0,0,0,0)
-                              img_cell:
-                                - width: 30px
-                                - justify-self: end
-                              icon:
-                                - width: 25px
-                                - '--state-inactive-color': var(--primary-text-color)
-                      styles:
-                        grid:
-                          - grid-template-areas: |
-                              "n n settings"
-                              "n2 n2 blank2"
-                              "blank1 toggle toggle"
-                          - grid-template-rows: 0.5fr 1.5fr 1fr
-                          - grid-template-columns: 2fr 35px 35px
-                        card:
-                          - '--ha-card-border-color': 1px solid var(--ha-card-border-color)
-                          - padding: 10px
-                          - height: 100%
-                          - border: 0.5px solid
-                          - background: rgb(29,28,33)
-                        img_cell:
-                          - height: 50px
-                          - border: 1px solid blue
-                          - '--card-background-color': rgba(white,0);
-                        icon:
-                          - align-self: end
-                        name:
-                          - justify-self: start
-                          - align-self: start
-                          - text-align: left
-                          - font-size: 24px
-                          - font-weight: 300
-                          - color: var(--primary-text-color)
-                        custom_fields:
-                          n2:
-                            - justify-self: start
-                            - align-self: start
-                            - text-align: left
-                            - font-size: 14px
-                            - font-weight: 300
-                            - color: var(--primary-text-color)
-                    - type: custom:button-card
-                      entity: light.bulb_livingroom_sofa_light
-                      name: Belysning
-                      show_icon: false
-                      show_state: false
-                      tap_action:
-                        action: none
-                      custom_fields:
-                        n2: Taklampa
-                        toggle:
-                          card:
-                            type: custom:button-card
-                            name: toggle
-                            entity: light.bulb_livingroom_sofa_light
-                            show_icon: true
-                            show_name: false
-                            show_state: false
-                            show_entity_picture: true
-                            state:
-                              - entity_picture: /local/Images/toggle_on.png
-                                value: 'on'
-                              - entity_picture: /local/Images/toggle_off.png
-                                value: 'off'
-                            styles:
-                              card:
-                                - border: rgba(0,0,0,0)
-                                - background: rgba(0,0,0,0)
-                              entity_picture:
-                                - width: 100%
-                        settings:
-                          card:
-                            type: custom:button-card
-                            icon: mdi:cog-outline
-                            show_name: false
-                            show_state: false
-                            entity: light.bulb_livingroom_sofa_light
-                            color: var(--primary-text-color)
-                            tap_action:
-                              action: more-info
-                            styles:
-                              card:
-                                - border: rgba(0,0,0,0)
-                                - background: rgba(0,0,0,0)
-                              img_cell:
-                                - width: 30px
-                                - justify-self: end
-                              icon:
-                                - width: 25px
-                                - '--state-inactive-color': var(--primary-text-color)
-                      styles:
-                        grid:
-                          - grid-template-areas: |
-                              "n n settings"
-                              "n2 n2 blank2"
-                              "blank1 toggle toggle"
-                          - grid-template-rows: 0.5fr 1.5fr 1fr
-                          - grid-template-columns: 2fr 35px 35px
-                        card:
-                          - '--ha-card-border-color': 1px solid var(--ha-card-border-color)
-                          - padding: 10px
-                          - height: 100%
-                          - background: >-
-                              linear-gradient(180deg, rgba(50,49,54,1) 0%,
-                              rgba(50,49,54,1) 60%, rgba(85,88,94,1) 100%);
-                        img_cell:
-                          - height: 50px
-                          - border: 1px solid blue
-                          - '--card-background-color': rgba(white,0);
-                        icon:
-                          - align-self: end
-                        name:
-                          - justify-self: start
-                          - align-self: start
-                          - text-align: left
-                          - font-size: 24px
-                          - font-weight: 300
-                          - color: var(--primary-text-color)
-                        custom_fields:
-                          n2:
-                            - justify-self: start
-                            - align-self: start
-                            - text-align: left
-                            - font-size: 14px
-                            - font-weight: 300
-                            - color: var(--primary-text-color)
-                - type: horizontal-stack
-                  cards:
-                    - type: custom:button-card
-                      entity: cover.vardagsrum_rullgardiner
-                      name: Rullgardiner
-                      tap-action:
-                        action: none
-                      show_icon: false
-                      show_state: false
-                      tap_action:
-                        action: none
-                      custom_fields:
-                        n2: Stora fönstret
-                        controlup:
-                          card:
-                            type: custom:button-card
-                            tap_action:
-                              action: call-service
-                              service: cover.open_cover
-                              service_data:
-                                entity_id: cover.vardagsrum_rullgardiner
-                            show_name: false
-                            icon: mdi:chevron-up
-                            template: controls
-                        controlstop:
-                          card:
-                            type: custom:button-card
-                            entity: cover.vardagsrum_rullgardiner
-                            tap_action:
-                              action: call-service
-                              service: cover.stop_cover
-                              service_data:
-                                entity_id: cover.vardagsrum_rullgardiner
-                            show_name: false
-                            icon: mdi:stop
-                            template: controls
-                        controldown:
-                          card:
-                            type: custom:button-card
-                            entity: cover.vardagsrum_rullgardiner
-                            tap_action:
-                              action: call-service
-                              service: cover.close_cover
-                              service_data:
-                                entity_id: cover.vardagsrum_rullgardiner
-                            show_name: false
-                            icon: mdi:chevron-down
-                            template: controls
-                        settings:
-                          card:
-                            type: custom:button-card
-                            icon: mdi:cog-outline
-                            show_name: false
-                            show_state: false
-                            entity: cover.vardagsrum_rullgardiner
-                            color: var(--primary-text-color)
-                            tap_action:
-                              action: more-info
-                            styles:
-                              card:
-                                - border: rgba(0,0,0,0)
-                                - background: rgba(0,0,0,0)
-                              img_cell:
-                                - width: 30px
-                                - justify-self: end
-                              icon:
-                                - width: 25px
-                                - '--state-inactive-color': var(--primary-text-color)
-                      styles:
-                        grid:
-                          - grid-template-areas: |
-                              "n n n settings"
-                              "n2 n2 blank2 blank4"
-                              "blank1 controlup controlstop controldown"
-                          - grid-template-rows: 30px 55px 35px
-                          - grid-template-columns: 2fr 40px 40px 35px
-                        card:
-                          - '--ha-card-border-color': 1px solid var(--ha-card-border-color)
-                          - padding: 10px
-                          - height: 100%
-                          - background: >-
-                              linear-gradient(180deg, rgba(50,49,54,1) 0%,
-                              rgba(50,49,54,1) 60%, rgba(85,88,94,1) 100%);
-                        img_cell:
-                          - height: 50px
-                          - border: 1px solid blue
-                          - '--card-background-color': rgba(white,0);
-                        icon:
-                          - align-self: end
-                        name:
-                          - justify-self: start
-                          - align-self: start
-                          - text-align: left
-                          - font-size: 24px
-                          - font-weight: 300
-                          - color: var(--primary-text-color)
-                        custom_fields:
-                          n2:
-                            - justify-self: start
-                            - align-self: start
-                            - text-align: left
-                            - font-size: 14px
-                            - font-weight: 300
-                            - color: var(--primary-text-color)
+                      full_row: true
+                      hide_state: true
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background-color: rgba(0,0,0,0);
+                        border: none;
+                      }
+                      .card-content {
+                        padding: 0px !important;
+                      }
+            styles:
+              card:
+                - border: none !important
+                - background: rgba(0,0,0,0)
+              grid:
+                - grid-template-areas: |
+                    "vMute vSlider"
+                - grid-template-rows: 1fr
+                - grid-template-columns: 10% 90%
           - type: custom:button-card
-            template: room_card
-            name: Sovrum
-            show_icon: true
-            icon: mdi:bed-king-outline
-            show_state: false
-            entity: input_boolean.toggle_sovrum_ui
-            tap_action:
-              action: call-service
-              service: input_boolean.toggle
-              service_data:
-                entity_id: input_boolean.toggle_sovrum_ui
-            custom_fields:
-              arrow: |
-                [[[
-                    if (states['input_boolean.toggle_sovrum_ui'].state == 'on')
-                      return `<ha-icon
-                icon="mdi:chevron-down">
-                </ha-icon>`
-                    return `<ha-icon
-                icon="mdi:chevron-right">
-                </ha-icon>`;
-                  ]]]
-          - type: custom:button-card
-            template: room_card
-            name: Kök
-            show_icon: true
-            show_state: false
-            entity: input_boolean.toggle_kok_ui
-            tap_action:
-              action: call-service
-              service: input_boolean.toggle
-              service_data:
-                entity_id: input_boolean.toggle_kok_ui
-            custom_fields:
-              arrow: |
-                [[[
-                    if (states['input_boolean.toggle_kok_ui'].state == 'on')
-                      return `<ha-icon
-                icon="mdi:chevron-down">
-                </ha-icon>`
-                    return `<ha-icon
-                icon="mdi:chevron-right">
-                </ha-icon>`;
-                  ]]]
-          - type: custom:button-card
-            template: room_card
-            name: Hall
-            show_icon: true
-            show_state: false
-            entity: input_boolean.toggle_hall_ui
-            tap_action:
-              action: call-service
-              service: input_boolean.toggle
-              service_data:
-                entity_id: input_boolean.toggle_hall_ui
-            custom_fields:
-              arrow: |
-                [[[
-                    if (states['input_boolean.toggle_hall_ui'].state == 'on')
-                      return `<ha-icon
-                icon="mdi:chevron-down">
-                </ha-icon>`
-                    return `<ha-icon
-                icon="mdi:chevron-right">
-                </ha-icon>`;
-                  ]]]
-          - type: custom:button-card
-            name: Enheter
+            name: Source
             styles:
               name:
-                - font-size: 14pt
-                - font-weight: 400
+                - font-size: 16pt
+                - font-weight: 300
                 - justify-self: start
+                - color: white
               card:
-                - padding: 10px 0 5px 15px
+                - padding: 5px 0 0 5px
                 - background: rgba(0,0,0,0)
                 - border: none
+                - font-family: Lato
           - type: custom:button-card
-            template: room_card
-            name: Media
-            show_icon: true
-            show_state: false
-            entity: input_boolean.toggle_media_ui
+            show_name: false
             tap_action:
-              action: call-service
-              service: input_boolean.toggle
-              service_data:
-                entity_id: input_boolean.toggle_media_ui
-            custom_fields:
-              arrow: |
-                [[[
-                    if (states['input_boolean.toggle_media_ui'].state == 'on')
-                      return `<ha-icon
-                icon="mdi:chevron-down">
-                </ha-icon>`
-                    return `<ha-icon
-                icon="mdi:chevron-right">
-                </ha-icon>`;
-                  ]]]
-          - type: custom:button-card
-            template: room_card
-            name: Dammsugare
-            show_icon: true
-            show_state: false
-            entity: input_boolean.toggle_dammsugare_ui
-            tap_action:
-              action: call-service
-              service: input_boolean.toggle
-              service_data:
-                entity_id: input_boolean.toggle_dammsugare_ui
-            custom_fields:
-              arrow: |
-                [[[
-                    if (states['input_boolean.toggle_dammsugare_ui'].state == 'on')
-                      return `<ha-icon
-                icon="mdi:chevron-down">
-                </ha-icon>`
-                    return `<ha-icon
-                icon="mdi:chevron-right">
-                </ha-icon>`;
-                  ]]]
-      - type: custom:layout-card
-        layout_type: custom:grid-layout
-        layout:
-          grid-template-columns: 50% 50%
-          grid-template-areas: |
-            "card1 spacer1"
-        cards:
-          - type: custom:button-card
-            entity: light.lightdimmer_kitchen_diningtable
-            name: Belysning
-            show_icon: false
-            show_state: false
-            tap_action:
-              action: none
-            custom_fields:
-              n2: Golvlampa
-              toggle:
-                card:
-                  type: custom:button-card
-                  name: toggle
-                  entity: light.lightdimmer_kitchen_diningtable
-                  show_icon: true
-                  show_name: false
-                  show_state: false
-                  show_entity_picture: true
-                  state:
-                    - entity_picture: /local/Images/toggle_on.png
-                      value: 'on'
-                    - entity_picture: /local/Images/toggle_off.png
-                      value: 'off'
-                  styles:
-                    card:
-                      - border: rgba(0,0,0,0)
-                      - background: rgba(0,0,0,0)
-                    entity_picture:
-                      - width: 100%
-              settings:
-                card:
-                  type: custom:button-card
-                  icon: mdi:cog-outline
-                  show_name: false
-                  show_state: false
-                  entity: light.lightdimmer_kitchen_diningtable
-                  color: var(--primary-text-color)
-                  tap_action:
-                    action: more-info
-                  styles:
-                    card:
-                      - border: rgba(0,0,0,0)
-                      - background: rgba(0,0,0,0)
-                    img_cell:
-                      - width: 30px
-                      - justify-self: end
-                    icon:
-                      - width: 25px
-                      - '--state-inactive-color': var(--primary-text-color)
-            styles:
-              grid:
-                - grid-template-areas: |
-                    "n settings"
-                    "n2 blank2"
-                    "blank1 toggle"
-                - grid-template-rows: 0.5fr 1.5fr 1fr
-                - grid-template-columns: 2fr 1fr
-              card:
-                - '--ha-card-border-color': 1px solid var(--ha-card-border-color)
-                - padding: 10px
-                - height: 100%
-              img_cell:
-                - height: 50px
-                - border: 1px solid blue
-                - '--card-background-color': rgba(white,0);
-              icon:
-                - align-self: end
-              name:
-                - justify-self: start
-                - align-self: start
-                - text-align: left
-                - font-size: 24px
-                - font-weight: 300
-                - color: var(--primary-text-color)
-              custom_fields:
-                n2:
-                  - justify-self: start
-                  - align-self: start
-                  - text-align: left
-                  - font-size: 14px
-                  - font-weight: 300
-                  - color: var(--primary-text-color)
-          - type: custom:button-card
-            entity: cover.vardagsrum_rullgardiner
-            name: Rullgardiner
-            tap-action:
               action: none
             show_icon: false
-            show_state: false
-            tap_action:
-              action: none
+            show_label: true
+            show_picture_entity: true
             custom_fields:
-              n2: Stora fönstret
-              controlup:
+              iconHDMI:
                 card:
                   type: custom:button-card
                   tap_action:
                     action: call-service
-                    service: cover.open_cover
-                    service_data:
-                      entity_id: cover.vardagsrum_rullgardiner
-                  show_name: false
-                  icon: mdi:chevron-up
-                  template: controls
-              controlstop:
-                card:
-                  type: custom:button-card
-                  entity: cover.vardagsrum_rullgardiner
-                  tap_action:
-                    action: call-service
-                    service: cover.stop_cover
-                    service_data:
-                      entity_id: cover.vardagsrum_rullgardiner
-                  show_name: false
-                  icon: mdi:stop
-                  template: controls
-              controldown:
-                card:
-                  type: custom:button-card
-                  entity: cover.vardagsrum_rullgardiner
-                  tap_action:
-                    action: call-service
-                    service: cover.close_cover
-                    service_data:
-                      entity_id: cover.vardagsrum_rullgardiner
-                  show_name: false
-                  icon: mdi:chevron-down
-                  template: controls
-              settings:
-                card:
-                  type: custom:button-card
-                  icon: mdi:cog-outline
-                  show_name: false
-                  show_state: false
-                  entity: light.lightdimmer_kitchen_diningtable
-                  color: var(--primary-text-color)
-                  tap_action:
-                    action: more-info
+                    service: media_player.select_source
+                    data:
+                      source: HDMI
+                      entity_id: media_player.audio_pro_a26_vardagsrum_2
+                  icon: mdi:hdmi-port
                   styles:
                     card:
-                      - border: rgba(0,0,0,0)
-                      - background: rgba(0,0,0,0)
-                    img_cell:
-                      - width: 30px
-                      - justify-self: end
+                      - background-color: rgba(0,0,0,0)
+                      - border: none
                     icon:
-                      - width: 25px
-                      - '--state-inactive-color': var(--primary-text-color)
+                      - color: |
+                          [[[
+                            if (states['media_player.audio_pro_a26_vardagsrum_2'].attributes.source == "HDMI")
+                              return "white";
+                            else
+                              return "rgba(142, 142, 142, 1)";
+                          ]]]
+                      - height: 30px
+                      - width: 30px
+              HDMI:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: media_player.select_source
+                    data:
+                      source: HDMI
+                      entity_id: media_player.audio_pro_a26_vardagsrum_2
+                  name: HDMI
+                  styles:
+                    card:
+                      - background-color: rgba(0,0,0,0)
+                      - border: none
+                      - color: |
+                          [[[
+                            if (states['media_player.audio_pro_a26_vardagsrum_2'].attributes.source == "HDMI")
+                              return "white";
+                            else
+                              return "rgba(142, 142, 142, 1)";
+                          ]]]
+                    name:
+                      - justify-self: start
+              iconWIFI:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: media_player.select_source
+                    data:
+                      source: Spotify
+                      entity_id: media_player.audio_pro_a26_vardagsrum_2
+                  icon: mdi:wifi
+                  styles:
+                    card:
+                      - background-color: rgba(0,0,0,0)
+                      - border: none
+                    icon:
+                      - color: |
+                          [[[
+                            if (states['media_player.audio_pro_a26_vardagsrum_2'].attributes.source == "TV sound")
+                              return "rgba(142, 142, 142, 1)";
+                            if (states['media_player.audio_pro_a26_vardagsrum_2'].attributes.source == "HDMI")
+                              return "rgba(142, 142, 142, 1)";
+                            else
+                              return "white";
+                          ]]]
+                      - height: 30px
+                      - width: 30px
+              WIFI:
+                card:
+                  type: custom:button-card
+                  name: WIFI
+                  tap_action:
+                    action: call-service
+                    service: media_player.select_source
+                    data:
+                      source: Spotify
+                      entity_id: media_player.audio_pro_a26_vardagsrum_2
+                  styles:
+                    card:
+                      - background-color: rgba(0,0,0,0)
+                      - border: none
+                      - color: |
+                          [[[
+                            if (states['media_player.audio_pro_a26_vardagsrum_2'].attributes.source == "TV sound")
+                              return "rgba(142, 142, 142, 1)";
+                            if (states['media_player.audio_pro_a26_vardagsrum_2'].attributes.source == "HDMI")
+                              return "rgba(142, 142, 142, 1)";
+                            else
+                              return "white";
+                          ]]]
+                    name:
+                      - justify-self: start
+              iconTV:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: media_player.select_source
+                    data:
+                      source: TV sound
+                      entity_id: media_player.audio_pro_a26_vardagsrum_2
+                  icon: mdi:television
+                  styles:
+                    card:
+                      - background-color: rgba(0,0,0,0)
+                      - border: none
+                    icon:
+                      - color: |
+                          [[[
+                            if (states['media_player.audio_pro_a26_vardagsrum_2'].attributes.source == "TV sound")
+                              return "white";
+                            else
+                              return "rgba(142, 142, 142, 1)";
+                          ]]]
+                      - height: 30px
+                      - width: 30px
+              TV:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: media_player.select_source
+                    data:
+                      source: TV sound
+                      entity_id: media_player.audio_pro_a26_vardagsrum_2
+                  name: OPTICAL
+                  styles:
+                    card:
+                      - background-color: rgba(0,0,0,0)
+                      - border: none
+                      - color: |
+                          [[[
+                            if (states['media_player.audio_pro_a26_vardagsrum_2'].attributes.source == "TV sound")
+                              return "white";
+                            else
+                              return "rgba(142, 142, 142, 1)";
+                          ]]]
+                            
+                    name:
+                      - justify-self: start
             styles:
+              card:
+                - border: none !important
+                - background: rgba(0,0,0,0)
+                - padding-top: 5px
               grid:
                 - grid-template-areas: |
-                    "n n n settings"
-                    "n2 n2 blank2 blank4"
-                    "blank1 controlup controlstop controldown"
-                - grid-template-rows: 0.5fr 1.5fr 1fr
-                - grid-template-columns: 2fr 1fr 1fr 1fr
-              card:
-                - '--ha-card-border-color': 1px solid var(--ha-card-border-color)
-                - padding: 10px
-                - height: 100%
-              img_cell:
-                - height: 50px
-                - border: 1px solid blue
-                - '--card-background-color': rgba(white,0);
-              icon:
-                - align-self: end
+                    "iconTV TV iconWIFI WIFI iconHDMI HDMI"
+                - grid-template-rows: 1fr
+                - grid-template-columns: 15% 22% 15% 13% 15% 13%
+          - type: custom:button-card
+            name: Multiroom
+            styles:
               name:
-                - justify-self: start
-                - align-self: start
-                - text-align: left
-                - font-size: 24px
+                - font-size: 16pt
                 - font-weight: 300
-                - color: var(--primary-text-color)
-              custom_fields:
-                n2:
-                  - justify-self: start
-                  - align-self: start
-                  - text-align: left
-                  - font-size: 14px
-                  - font-weight: 300
-                  - color: var(--primary-text-color)
-      - type: custom:layout-card
-        layout_type: custom:grid-layout
-        layout:
-          grid-template-columns: 80px 1fr 80px 1fr 80px 1fr 80px
-          grid-template-areas: |
-            "morgon spacer2 hemma spacer3 borta spacer4 natt"
-        cards:
-          - type: custom:button-card
-            template: status_card2
-            show_name: false
-            entity: script.hemma
-            icon: mdi:weather-sunset-up
-            view_layout:
-              grid-area: morgon
-            card_mod:
-              style: |
-                ha-card {
-                  --ha-card-border-color: var(--ha-card-border-color);
-                  --ha-card-border-width: 1.5px;
-                  --card-background-color: var(--primary-background-color);
-          - type: custom:button-card
-            template: status_card2
-            show_name: false
-            entity: script.hemma
-            icon: mdi:home-outline
-            view_layout:
-              grid-area: hemma
-            card_mod:
-              style: |
-                ha-card {
-                  --ha-card-border-color: "#dfdfd";
-                  --ha-card-border-width: 1px;
-          - type: custom:button-card
-            template: status_card2
-            show_name: false
-            entity: script.hemma
-            icon: mdi:home-export-outline
-            view_layout:
-              grid-area: borta
-            card_mod:
-              style: |
-                ha-card {
-                  --ha-card-border-color: var(--ha-card-border-color);
-                  --ha-card-border-width: 1.5px;
-                  --card-background-color: var(--primary-background-color);
-          - type: custom:button-card
-            template: status_card2
-            show_name: false
-            entity: script.hemma
-            icon: mdi:weather-night
-            view_layout:
-              grid-area: natt
-            card_mod:
-              style: |
-                ha-card {
-                  --ha-card-border-color: var(--ha-card-border-color);
-                  --ha-card-border-width: 1.5px;
-                  --card-background-color: var(--primary-background-color);
-      - type: custom:mushroom-template-card
-        primary: God morgon, {{user}}.
-        secondary: Hemma är det soligt och 22°C
-        icon: ''
-        card_mod:
-          style: |
-            ha-card {
-              --card-primary-font-size: 20px;
-              --card-secondary-font-size: 12px;
-              --ha-card-border-color: rgba(0,0,0,0);
-              --card-background-color: rgba(0,0,0,0);              
-            }
-      - type: custom:button-card
-        name: Rum
-        styles:
-          name:
-            - font-size: 14pt
-            - font-weight: 300
-            - justify-self: start
-          card:
-            - padding: 5px 0 5px 10px
-            - background: rgba(white,0)
+                - justify-self: start
+                - color: white
+              card:
+                - padding: 5px 0 0 5px
+                - background: rgba(0,0,0,0)
+                - border: none
+                - font-family: Lato
+    theme: light_mode
+    type: custom:vertical-layout
