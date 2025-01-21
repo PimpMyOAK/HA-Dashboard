@@ -6,4 +6,6 @@
 <a href="https://github.com/Clooos/Bubble-Card">Bubble Card (Media Control Pop-up)
 
 ### Disclaimer
-Test
+The cards are primary styled by the button_card_templates at the top of the .yaml file. But some aspects are styled on each card.
+I´ve not gone through the code so there's probably some styling that occurs in both places.
+
